@@ -1,5 +1,3 @@
-
-
 :root.theme-light {
   --page-bg-color: #fff1f7;
   --h1-color: #ffc2e6;
@@ -39,5 +37,5 @@
 }
 
 .theme-light .footer__page-title {
-  --accent-color: #ff0070
+  --accent-color: #ff0070;
 }
