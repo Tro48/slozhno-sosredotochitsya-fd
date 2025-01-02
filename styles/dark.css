@@ -1,14 +1,13 @@
 
-
 :root.theme-dark {
   --page-bg-color: #000028;
-  --h1-color: #db00ff;
+  --main-title-color: #db00ff;
   --section-title-color: #000028;
-  --title-color: #ff0070;
-  --title-bg-color: #ff0070;
-  --p-color: #f1b2ce;
+  --article-title-color: #ff0070;
+  --article-title-bg-color: #ff0070;
+  --content-color: #f1b2ce;
+  --cover-image: url("../images/cover-image-dark.png");
   --accent-color: #ff0070;
   --menu-color: #ff0070;
   --menu-hover-color: rgb(255, 0, 112, 0.4);
-  --cover-image: url("../images/cover-image-dark.png");
 }

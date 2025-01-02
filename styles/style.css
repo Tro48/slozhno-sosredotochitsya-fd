@@ -2,6 +2,7 @@
 
 .page {
   min-width: 375px;
+  background-color: var(--page-bg-color);
   background-image: var(--cover-image);
   background-repeat: no-repeat;
   background-position: center;
@@ -11,6 +12,7 @@
 
 .decorated-zone {
   position: relative;
+  height: 100vh;
   min-height: 668px;
 }
 
@@ -37,32 +39,39 @@
 }
 
 .rec-decoration {
-  position: absolute;
   display: flex;
   justify-content: center;
-  gap: 7px;
-  padding: 2px 2px 0 0;
-  top: var(--padding-page);
-  right: var(--padding-page);
+  align-items: center;
+  gap: 12px;
+  position: absolute;
+  font-weight: 400;
+  line-height: 139%;
+  top: calc(var(--padding-page) + 1px);
+  right: calc(var(--padding-page) + 9px);
+}
+
+.rec-decoration::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
 .rec-decoration::before {
   content: 'rec';
-  font-family: var(--font-family), Arial, sans-serif;
+  font-family: var(--font-family), monospace, sans-serif;
   text-transform: uppercase;
   color: var(--menu-color);
-}
-
-.rec-decoration::after {
-  content: url(../images/Ellipse.svg);
 }
 
 .header {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: end;
-  row-gap: 10px;
   padding: var(--padding-page);
+  row-gap: 10px;
 }
 
 .header__theme-menu {
@@ -72,13 +81,15 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  justify-content: space-between;
+  min-height: 98px;
+  gap: 10px;
 }
 
 .header__theme-menu-button {
   display: block;
   min-width: 70px;
-  font-family: var(--font-family), Arial, sans-serif;
+  font-family: var(--font-family), monospace, sans-serif;
   font-size: var(--page-font-size);
   color: var(--menu-color);
   text-align: center;
@@ -103,6 +114,10 @@
   border-color: var(--menu-hover-color);
 }
 
+.header__theme-menu-button {
+  text-shadow: none;
+}
+
 a:hover {
   border-block-end: 1px solid var(--p-color);
 }
@@ -114,21 +129,22 @@ a:focus-visible {
 .page-title {
   grid-row: 3;
   justify-self: start;
-  font-size: var(--h1-font-size);
+  font-size: var(--main-title-font-size);
   line-height: 83%;
-  color: var(--h1-color);
+  color: var(--main-title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .page-description {
   grid-row: 4;
   max-width: 355px;
+  min-height: max-content;
 }
 
 .title-decor {
   max-height: max-content;
   color: var(--section-title-color);
-  background-color: var(--title-bg-color);
+  background-color: var(--article-title-bg-color);
 }
 
 .content {
@@ -148,7 +164,7 @@ a:focus-visible {
 
 .content__section_title {
   font-size: var(--page-font-size);
-  color: var(--title-color);
+  color: var(--article-title-color);
 }
 
 .content__section__desc-block {
@@ -161,11 +177,12 @@ a:focus-visible {
   font-weight: 400;
 }
 
-.content__section__desc-block_p {
+.content__section__desc-block_content {
   font-size: var(--page-font-size);
-  color: var(--p-color);
+  color: var(--content-color);
   font-weight: 400;
 }
+
 .content__section_gallery {
   display: grid;
   gap: 10px;
@@ -189,68 +206,68 @@ a:focus-visible {
   text-shadow: 2px 2px 0 var(--accent-color);
 }
 
-@media (width >= 768px) {
-    .header {
-      padding-inline-start: calc(var(--padding-page)/2,5);
-      row-gap: 10px;
-    }
-
-    .decorated-zone {
-      min-height: 1024px;
-    }
-
-    .page-description {
-      max-width: 364px;
-    }
-
-    .content {
-      row-gap: 80px;
-    }
-
-    .content__section {
-      grid-template-columns: 1fr 2fr;
-      column-gap: 20px;
-    }
-
-    .content__section__desc-blocks {
-      grid-column: 2;
-    }
-
-    .content__section:nth-child(2) .content__section__desc-blocks {
-      grid-column: span 2;
-    }
-
-    .content__section_gallery {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(4, auto);
-      grid-auto-flow: dense;
-      gap: 20px;
+@media (width >=768px) {
+  .header {
+    padding-inline-start: calc(var(--padding-page)/2, 5);
+    row-gap: 10px;
   }
 
-    .content__section_gallery_title {
-      grid-column: span 3;
-      grid-row: 1;
-    }
+  .decorated-zone {
+    min-height: 1024px;
+  }
 
-    .content__section_gallery_img:nth-child(2) {
-      grid-column: span 2;
-      grid-row: 2;
-    }
+  .page-description {
+    max-width: 364px;
+  }
 
-    .content__section_gallery_img:nth-child(3) {
-      grid-column: 3;
-      grid-row: 2/-2;
-    }
+  .content {
+    row-gap: 80px;
+  }
 
-    .content__section_gallery_img:nth-child(4) {
-      grid-column: 1;
-      grid-row: 3/-1;
-    }
+  .content__section {
+    grid-template-columns: 1fr 2fr;
+    column-gap: 20px;
+  }
 
-    .content__section_gallery_img:nth-child(6) {
-      grid-column: 2/-1;
-      grid-row: 4/-1;
-    }
+  .content__section__desc-blocks {
+    grid-column: 2;
+  }
+
+  .content__section__desc-blocks_three-column {
+    grid-column: span 2;
+  }
+
+  .content__section_gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: dense;
+    gap: 20px;
+  }
+
+  .content__section_gallery_title {
+    grid-column: span 3;
+    grid-row: 1;
+  }
+
+  .content__section_gallery_img:nth-child(2) {
+    grid-column: span 2;
+    grid-row: 2;
+  }
+
+  .content__section_gallery_img:nth-child(3) {
+    grid-column: 3;
+    grid-row: 2/-2;
+  }
+
+  .content__section_gallery_img:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3/-1;
+  }
+
+  .content__section_gallery_img:nth-child(6) {
+    grid-column: 2/-1;
+    grid-row: 4/-1;
+  }
 
 }
 
@@ -258,6 +275,7 @@ a:focus-visible {
   .header {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 2fr 1fr 2fr;
+    row-gap: 114px;
   }
 
   .decorated-zone {
@@ -266,6 +284,7 @@ a:focus-visible {
 
   .header__theme-menu {
     justify-self: center;
+    padding-inline-start: var(--padding-page);
     grid-column: 2;
     grid-row: 1;
   }
@@ -273,7 +292,7 @@ a:focus-visible {
   .header__theme-menu-list {
     flex-direction: row;
   }
-  
+
   .page-title {
     grid-column: span 3;
     grid-row: 2;
@@ -284,12 +303,15 @@ a:focus-visible {
     max-width: calc(50% - 10px);
     grid-column: span 3;
     grid-row: 3/4;
-    align-self: center;
   }
 
-  .content__section:nth-child(2) .content__section__desc-blocks {
+  .content__section__desc-blocks_three-column {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
+  }
+
+  .content__section {
+    column-gap: 10px;
   }
 
 }
