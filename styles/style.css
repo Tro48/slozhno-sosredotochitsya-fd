@@ -99,6 +99,7 @@
   border: 1px solid transparent;
   padding: 1.5px 13px 2.5px 13px;
   cursor: pointer;
+  text-shadow: none;
 }
 
 .header__theme-menu-button_active {
@@ -112,10 +113,6 @@
 
 .header__theme-menu-button:hover {
   border-color: var(--menu-hover-color);
-}
-
-.header__theme-menu-button {
-  text-shadow: none;
 }
 
 a:hover {
